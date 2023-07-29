@@ -1,0 +1,43 @@
+<div class="card mb-2 col-12">
+    <div class="card-body">
+      <div class="row clearfix">
+        <div class="col-8">
+          <h5 class="card-title">Stock list</h5>
+       
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Stock symbol</th>
+                <th scope="col">Stock name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Purchase price</th>
+                <th scope="col">Market price</th>
+                <th scope="col">Profit loss</th>
+                <th scope="col">Market value</th>
+                <th scope="col">Account</th>
+                <th scope="col">View trades</th>
+                <th scope="col">Add trade</th>
+                <th scope="col">Add dividend</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let stock of stocks">
+                
+                <td scope="row">{{stock.symbol}}</td>
+                <td scope="row">{{stock.stockName    }}</td>
+                <td scope="row">{{stock.totalAmount    }}</td>
+                <td scope="row">{{stock.currentValue    }}</td>
+                <td scope="row">{{stock.currentPrice    }}</td>
+                <td scope="row">{{(stock.currentPrice-stock.currentValue)  *stock.totalAmount }}</td>
+                <td scope="row">{{stock.currentPrice*stock.totalAmount    }}</td>
+                <td scope="row">{{stock.account.accountName    }}</td>
+                <td scope="row"><button class="btn btn-primary btn-sm float-right " routerLink="/trade">View trade list</button></td>
+                <td scope="row"><button class="btn btn-primary btn-sm float-right " routerLink="/add-trade">Add new trade</button></td>
+                <td scope="row"><button class="btn btn-primary btn-sm float-right " routerLink="/add-dividend">Add new dividend</button></td>
+                
+            
+            </tbody>
+          </table>
+    </div>
+</div>

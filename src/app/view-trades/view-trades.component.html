@@ -1,0 +1,41 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="row clearfix">
+      <div class="col-8">
+        <h5 class="card-title">Trade list</h5>
+      </div>
+      <div class="col-4">
+       
+      </div>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Stock symbol</th>
+          <th scope="col">Date</th>
+          <th scope="col">Type</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Currency</th>
+          <th scope="col">Fee</th>
+          <th scope="col">Summray</th>
+          <th scope="col">Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trade of trades">
+          <td scope="row">{{trade.stock.symbol}}</td>
+          <td scope="row">{{trade.date }}</td>
+          <td scope="row">{{trade.tradeType }}</td>
+          <td scope="row">{{trade.amount }}</td>
+          <td scope="row">{{trade.unitPrice }}</td>
+          <td scope="row">{{(trade.stock.account.currency) }}</td>
+          <td scope="row">{{trade.commission }}</td>
+          <td scope="row">{{ ((trade.amount * trade.unitPrice) + trade.commission) }}</td>
+          <td scope="row">{{trade.comment }}</td>
+        </tr>
+     
+      </tbody>
+    </table>
+  </div>
+</div>

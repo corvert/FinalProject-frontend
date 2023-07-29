@@ -1,0 +1,37 @@
+<div class="card mb-2">
+    <div class="card-body">
+      <div class="row clearfix">
+        <div class="col-8">
+          <h5 class="card-title">Add stock</h5>
+          
+        </div>
+       
+      </div>
+
+    
+      <form (ngSubmit) = "onSubmit(addStockForm)" #addStockForm="ngForm">
+        <div class="form-group">
+        <label>Stock symbol</label> <br>
+        <input type="text" [(ngModel)]="stock.symbol" name="symbol" id="symbol"  
+        required placeholder="Enter stock symbol" class="from-contr">  <br>
+        <label>Stock Name</label> <br>
+        <input type="text" [(ngModel)]="stock.stockName" name="stockName" id="stockName"  
+        required placeholder="Enter stock name">  <br>
+        <label>Account for stock</label> <br>
+        <!-- <input type="number" [(ngModel)]="stock.account" name="account" id="account" 
+        [value]="account.id"          disabled> 
+        <br> -->
+        <!-- <select [(ngModel)]="selectedAccountId" name="accountId">
+            <option *ngFor="let account of accountList" [value]="account.id">{{account.accountName}} </option>
+        </select>  -->
+        <br>
+        <label>Stock market price</label> <br>
+        <input type="number" [(ngModel)]="stock.currentPrice" name="currentPrice" id="currentPrice"  
+        required placeholder="Enter stock marekt price">  <br>
+           <br>
+           <button [disabled]="addStockForm.invalid" class ="btn btn-success" type ="submit">Add account</button>
+    </div>
+    </form>
+  
+    </div>
+  </div>

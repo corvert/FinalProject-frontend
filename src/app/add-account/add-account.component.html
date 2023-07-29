@@ -1,0 +1,25 @@
+<div class="card mb-2">
+    <div class="card-body">
+      <div class="row clearfix">
+        <div class="col-8">
+          <h5 class="card-title">Add new account</h5>
+        </div>
+        
+      </div>
+
+      <form  (ngSubmit)="onSubmit(addAccountForm)" #addAccountForm="ngForm">
+        <label>Account name</label> <br>
+        <input type="text" [(ngModel)]="account.accountName" name="accountName" id="accountName"  
+        required placeholder="Enter account fullname...">  <br>
+        <label>Account balance</label> <br>
+        <input type="number" [(ngModel)]="account.balance" name="balance" id="balance"  
+        required placeholder="Enter account balance">  <br>
+        <label>Account currency</label> <br>
+        <input type="text" [(ngModel)]="account.currency" name="currency" id="currency"  
+        required placeholder="Enter account currency">  <br>
+        <br>
+        <button [disabled]="addAccountForm.invalid" class ="btn btn-success" type ="submit">Add account</button>
+    </form>
+  
+    </div>
+  </div>

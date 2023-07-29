@@ -1,0 +1,38 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="row clearfix">
+      <div class="col-8">
+        <h5 class="card-title">Dividend list</h5>
+      </div>
+      <div class="col-4">
+       
+      </div>
+    </div>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Stock </th>
+              <th scope="col">Date</th>
+              <th scope="col">Gross sum</th>
+              <th scope="col">Withholding Tax</th>
+              <th scope="col">Net sum</th>
+           
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dividend of dividends">
+              
+              <td scope="row">{{dividend.stock.stockName}}</td>
+              <td scope="row">{{dividend.date    }}</td>
+              <td scope="row">{{dividend.grossAmount    }}</td>
+              <td scope="row">{{dividend.withholdingTax    }}</td>
+              <td scope="row">{{dividend.grossAmount-dividend.withholdingTax    }}</td>
+            
+              
+              
+          
+          </tbody>
+        </table>
+  </div>
+</div>
