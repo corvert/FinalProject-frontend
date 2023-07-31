@@ -17,9 +17,16 @@ export class StockService {
     return this.http.get<Stock[]>(`${this.apiServerUrl}/stock`);
   }
 
-  public addStock(stock: Stock, account: Account): Observable<Stock>{
-     return this.http.post<Stock>(`${this.apiServerUrl}/stock/add-stock`, stock);
+  public getStock(stockId: number): Observable<Stock> {
+    return this.http.get<Stock>(`${this.apiServerUrl}/stock/id/${stockId}`);
   }
 
+  public addStockToAccount(accountId: number, stock: Stock): Observable<any> {
+    return this.http.post(`${this.apiServerUrl}/account/${accountId}/create-stock`, stock);
+  }
+
+  public getAccountStockList(accountId: number): Observable<Stock[]> {
+    return this.http.get<Stock[]>(`${this.apiServerUrl}/account/${accountId}/stock-list`);
+  }
 
 }

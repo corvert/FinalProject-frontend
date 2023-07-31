@@ -1,5 +1,5 @@
 <div class="card mb-2">
-  <div class=" col-20 card-body">
+  <div class=" col-12 card-body">
     <div class="row clearfix">
       <div class="col-8">
         <h5 class="card-title">Account list</h5>
@@ -17,6 +17,8 @@
           <th scope="col">Account balance in EUR</th>
           <th scope="col">View stock</th>
           <th scope="col">Add stock</th>
+          <th scope="col">Add/withdraw funds</th>
+
         </tr>
       </thead>
       <tbody>
@@ -26,11 +28,9 @@
           <td scope="row">{{account.balance}}</td>
           <td scope="row">{{account.currency    }}</td>
           <td scope="row">{{account.balance*1.1}}</td>
-          <td scope="row"><button class="btn btn-primary btn-sm float-right " routerLink="/stock">View stocks</button></td>
-          <!-- <td><a href="stock/@{id}/add-stock" value="account.id">Add stock</a></td> -->
-          <td scope="row"><button class="btn btn-primary btn-sm float-right "  routerLink="/account/{{account.id}}/stock">Add new stock</button></td>
-          
-          
+          <td scope="row"><button class="btn btn-primary btn-sm float-right " (click)="goToAccountStockList(account.id)">View stocks</button></td>
+          <td scope="row"><button button class="btn btn-primary btn-sm float-right " (click)="goToAddStock(account.id)">Add Stock</button></td>
+          <td scope="row"><button button class="btn btn-primary btn-sm float-right " (click)="goAddWithdraw(account.id)">Add/withdraw funds</button></td>
         
         </tr>
         

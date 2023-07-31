@@ -16,7 +16,8 @@ export class DividendService {
     return this.http.get<Dividend[]>(`${this.apiServerUrl}/dividend`);
   }
 
-  public addDividend(dividend: Dividend): Observable<Dividend>{
-     return this.http.post<Dividend>(`${this.apiServerUrl}/trade/add-stock`, dividend);
+  addDividendToStock(stockId: number, dividend: Dividend): Observable<any> {
+    return this.http.post(`${this.apiServerUrl}/stock/${stockId}/createDividend`, dividend);
   }
+
 }

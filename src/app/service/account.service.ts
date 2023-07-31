@@ -13,12 +13,16 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllAccounts(): Observable<Account[]>{
+  public addAccount(account: Account): Observable<Account>{
+     return this.http.post<Account>(`${this.apiServerUrl}/account/add-account`, account);
+  }
+
+ public getAccounts(): Observable<Account[]> {
     return this.http.get<Account[]>(`${this.apiServerUrl}/account`);
   }
 
-  public addAccount(account: Account): Observable<Account>{
-     return this.http.post<Account>(`${this.apiServerUrl}/account/add-account`, account);
+  public getAccount(accountId: number): Observable<Account> {
+    return this.http.get<Account>(`${this.apiServerUrl}/account/${accountId}`);
   }
 
 }

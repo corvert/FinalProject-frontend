@@ -13,31 +13,31 @@ export class AddAccountComponent implements OnInit {
 
   account: Account = new Account();
 
-  constructor(private accountService:AccountService,
-   private router: Router){}
+  constructor(private accountService: AccountService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  saveAccount(){
-    this.accountService.addAccount(this.account).subscribe(data =>{
+  public saveAccount() {
+    this.accountService.addAccount(this.account).subscribe(data => {
       console.log(data);
       this.goToAccountList();
     },
-    error => console.log(error));
+      error => console.log(error));
   }
 
-  goToAccountList(){
+  public goToAccountList() {
     this.router.navigate(['account']);
   }
 
-  onSubmit(addAccountForm: NgForm){
-    if(addAccountForm.valid){
+  public onSubmit(addAccountForm: NgForm) {
+    if (addAccountForm.valid) {
       console.log(addAccountForm.value);
       this.saveAccount();
     }
-    
+
   }
 
 }

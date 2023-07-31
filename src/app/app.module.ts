@@ -16,6 +16,8 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
 import { AddTradeComponent } from './add-trade/add-trade.component';
 import { AddDividendComponent } from './add-dividend/add-dividend.component';
+import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AddDividendComponent } from './add-dividend/add-dividend.component';
     AddAccountComponent,
     AddStockComponent,
     AddTradeComponent,
-    AddDividendComponent
+    AddDividendComponent,
+    ViewTransactionComponent,
+    AddTransactionComponent
   ],
   imports: [
     BrowserModule,

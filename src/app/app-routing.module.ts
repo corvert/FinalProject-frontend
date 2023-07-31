@@ -9,6 +9,8 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
 import { AddTradeComponent } from './add-trade/add-trade.component';
 import { AddDividendComponent } from './add-dividend/add-dividend.component';
+import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 
 const routes: Routes = [
   //{path: '', component: ContentComponent},
@@ -20,7 +22,13 @@ const routes: Routes = [
   {path: 'add-stock', component: AddStockComponent},
   {path: 'add-trade', component: AddTradeComponent},
   {path: 'add-dividend', component: AddDividendComponent},
-  {path: 'account/:id/stock', component: AddStockComponent}
+  {path: 'account/:id/createStock', component: AddStockComponent},
+  {path: "stock/:id/createTrade", component: AddTradeComponent},
+  {path: "stock/:id/createDividend", component: AddDividendComponent},
+  {path: "transaction", component: ViewTransactionComponent},
+  {path: "account/:id/createTransaction", component: AddTransactionComponent},
+  {path: "account/:id/stock-list", component: ViewStocksComponent},
+ // {path: "account/:id/stock-list", component: ViewAccountsComponent}
 
 
 

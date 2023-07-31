@@ -1,37 +1,31 @@
 <div class="card mb-2">
-    <div class="card-body">
-      <div class="row clearfix">
-        <div class="col-8">
-          <h5 class="card-title">Add stock</h5>
-          
-        </div>
-       
-      </div>
+  <div class="card-body">
+    <div class="row clearfix">
 
-    
-      <form (ngSubmit) = "onSubmit(addStockForm)" #addStockForm="ngForm">
-        <div class="form-group">
-        <label>Stock symbol</label> <br>
-        <input type="text" [(ngModel)]="stock.symbol" name="symbol" id="symbol"  
-        required placeholder="Enter stock symbol" class="from-contr">  <br>
-        <label>Stock Name</label> <br>
-        <input type="text" [(ngModel)]="stock.stockName" name="stockName" id="stockName"  
-        required placeholder="Enter stock name">  <br>
-        <label>Account for stock</label> <br>
-        <input type="number" [(ngModel)]="stock.account" name="account" id="account" 
-        [value]="account.id"          disabled> 
-        <br>
-        <!-- <select [(ngModel)]="selectedAccountId" name="accountId">
-            <option *ngFor="let account of accountList" [value]="account.id">{{account.accountName}} </option>
-        </select>  -->
-        <br>
-        <label>Stock market price</label> <br>
-        <input type="number" [(ngModel)]="stock.currentPrice" name="currentPrice" id="currentPrice"  
-        required placeholder="Enter stock marekt price">  <br>
-           <br>
-           <button [disabled]="addStockForm.invalid" class ="btn btn-success" type ="submit">Add stock to account</button>
     </div>
-    </form>
-  
+    <div>
+      <h5>Add Stock for Account {{ selectedAccount.accountName }}</h5>
+      <form (submit)="onSubmit(addStockForm)" #addStockForm="ngForm">
+        <div class="form-group">
+          <div>
+            <label for="symbol">Stock Symbol:</label><br>
+            <input type="text" id="symbol" name="symbol" [(ngModel)]="newStock.symbol" required> <br>
+          </div>
+          <div>
+            <label for="stockName">Stock Name:</label> <br>
+            <input type="text" id="stockName" name="stockName" [(ngModel)]="newStock.stockName" required>
+            <br>
+          </div>
+          <div>
+            <label for="currentPrice">Current Price:</label>
+            <br>
+            <input type="number" id="currentPrice" name="currentPrice" [(ngModel)]="newStock.currentPrice" required>
+            <br>
+          </div>
+          <br>
+          <button [disabled]="addStockForm.invalid" class="btn btn-success" type="submit">Add stock</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
