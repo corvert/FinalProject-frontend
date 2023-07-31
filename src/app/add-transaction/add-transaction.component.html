@@ -1,0 +1,37 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="row clearfix">
+
+    </div>
+    <div>
+      <h5>Add transaction {{ selectedAccount.accountName }}</h5>
+      <form (submit)="onSubmit(addTransactionForm)" #addTransactionForm="ngForm">
+        <div class="form-group">
+          <div>
+            <label for="date">Date:</label><br>
+            <input type="date" id="transactionDate" name="transactionDate" [(ngModel)]="newTransaction.transactionDate"
+              required> <br>
+          </div>
+          <div>
+            <label for="amount">Amount</label>
+            <br>
+            <input type="number" id="amount" name="amount" [(ngModel)]="newTransaction.amount" required>
+            <br>
+          </div>
+          <div>
+            <label for="transactionType">Trade Type</label> <br>
+            <select col-4 class="form-select" aria-label="Default select example" id="transactionType"
+              name="transactionType" [(ngModel)]="newTransaction.transactionType" required>
+              <!-- <option selected>Trade Type</option> -->
+              <option value="DEPOSIT">DEPOSIT</option>
+              <option value="WITHDRAW">WITHDRAW</option>
+            </select>
+          </div>
+
+          <br>
+          <button [disabled]="addTransactionForm.invalid" class="btn btn-success" type="submit">Add transaction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
