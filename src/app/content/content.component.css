@@ -6,3 +6,7 @@
     
     border-radius: 4px;
 }
+.chartContainer{
+    width: 600px;
+    height: 600px;
+}

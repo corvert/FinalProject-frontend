@@ -15,7 +15,6 @@ export class AddStockComponent implements OnInit {
 
   selectedAccount: Account;
   newStock: Stock = new Stock();
-  stock: Stock = new Stock();
   account: Account = new Account();
 
 
@@ -33,30 +32,29 @@ export class AddStockComponent implements OnInit {
     });
   }
 
-  getAccount(accountId: number) {
+  public getAccount(accountId: number) {
     this.accountService.getAccount(accountId).subscribe((account) => {
       this.selectedAccount = account;
     });
   }
 
-  addStockToAccount(newStock: Stock) {
+  public addStockToAccount(newStock: Stock) {
     this.stockService.addStockToAccount(this.selectedAccount.id, newStock).subscribe(data => {
       this.goToStockList();
       console.log(data);
-    }, 
-   
+    },
+
       error => console.log(error));
   }
 
-  onSubmit(addStockForm: NgForm) {
+  public onSubmit(addStockForm: NgForm) {
     this.stockService.addStockToAccount(this.selectedAccount.id, this.newStock).subscribe(() => {
       this.goToStockList();
     }, error => console.log(error));
-    
+
   }
 
-
-  goToStockList() {
+  private goToStockList() {
     this.router.navigate(['stock']);
   }
 

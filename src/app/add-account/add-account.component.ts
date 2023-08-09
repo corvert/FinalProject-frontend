@@ -28,7 +28,7 @@ export class AddAccountComponent implements OnInit {
       error => console.log(error));
   }
 
-  public goToAccountList() {
+  private goToAccountList() {
     this.router.navigate(['account']);
   }
 

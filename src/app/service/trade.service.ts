@@ -17,7 +17,11 @@ export class TradeService {
   }
 
 
-  addTradeToStock(stockId: number, trade: Trade): Observable<any> {
+  public addTradeToStock(stockId: number, trade: Trade): Observable<any> {
     return this.http.post(`${this.apiServerUrl}/stock/${stockId}/createTrade`, trade);
+  }
+
+  public getStockTradeList(stockId: number): Observable<Trade[]> {
+    return this.http.get<Trade[]>(`${this.apiServerUrl}/stock/${stockId}/trade-list`);
   }
 }

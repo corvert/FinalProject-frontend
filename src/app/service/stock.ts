@@ -8,6 +8,7 @@ export class Stock{
     currentPrice: number;
     totalAmount: number;
     averagePrice: number;
-    currentValue: number;
+    totalBuyValue: number;
     profitLoss: number;
+    totalMarketValue: number;
 }

@@ -9,21 +9,21 @@
         <div class="form-group">
           <div>
             <label for="symbol">Stock Symbol:</label><br>
-            <input type="text" id="symbol" name="symbol" [(ngModel)]="newStock.symbol" required> <br>
+            <input class="form-control" style="width: 200px" type="text" id="symbol" name="symbol" [(ngModel)]="newStock.symbol" required> <br>
           </div>
           <div>
             <label for="stockName">Stock Name:</label> <br>
-            <input type="text" id="stockName" name="stockName" [(ngModel)]="newStock.stockName" required>
+            <input class="form-control" style="width: 200px" type="text" id="stockName" name="stockName" [(ngModel)]="newStock.stockName" required>
             <br>
           </div>
           <div>
             <label for="currentPrice">Current Price:</label>
             <br>
-            <input type="number" id="currentPrice" name="currentPrice" [(ngModel)]="newStock.currentPrice" required>
-            <br>
+            <input class="form-control" style="width: 200px" type="number" id="currentPrice" name="currentPrice" [(ngModel)]="newStock.currentPrice" required>
           </div>
           <br>
-          <button [disabled]="addStockForm.invalid" class="btn btn-success" type="submit">Add stock</button>
+          
+          <button [disabled]="addStockForm.invalid" class="btn btn-success" style="width: 200px" type="submit">Add stock</button>
         </div>
       </form>
     </div>

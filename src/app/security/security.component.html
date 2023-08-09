@@ -11,11 +11,15 @@
     <br>
     <!-- <button class="fadeIn fourth" type="submit">Login</button> -->
     <input type="submit"  class="fadeIn sixth" value="Log In">
+    <div class="alert alert-danger" role="alert" *ngIf="invalidLogin">Login failed: {{ errorMessage }} </div>
   </form>
+
   
-  <div *ngIf="response">
-    <p>{{ response }}</p>
+  <div class="alert alert-success" *ngIf="loginSuccess">
+    Logged in as {{ username }}.
   </div>
+  
+  
   
 </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ AuthService } from '../service/AuthService'
+import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
   invalidLogin = false;
   loginSuccess = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+    private router: Router,) {}
 
   ngOnInit(): void {
    
@@ -27,11 +30,10 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful';
-      // redirect to main page
+      this.router.navigate(['home']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
     });
   }
-
 }

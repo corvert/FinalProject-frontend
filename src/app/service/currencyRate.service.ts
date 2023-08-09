@@ -26,5 +26,10 @@ export class CurrencyService {
   public getCurrencyRateById(currencyId: number): Observable<CurrencyRate> {
     return this.http.get<CurrencyRate>(`${this.apiServerUrl}/currency/${currencyId}`);
   }
+
+  getCurrencyByCode(code: string): Observable<CurrencyRate> {
+    const url = `${this.apiServerUrl}/currency/currency/${code}`;
+    return this.http.get<CurrencyRate>(url);
+  }
   
   }

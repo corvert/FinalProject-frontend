@@ -16,4 +16,9 @@ export class TransactionService {
     return this.http.post(`${this.apiServerUrl}/account/${accountId}/balance-update-by-transaction`, transaction);
   }
 
+  
+  public getAccountTransactionList(accountId: number): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.apiServerUrl}/account/${accountId}/transaction-list`);
+  }
+
 }

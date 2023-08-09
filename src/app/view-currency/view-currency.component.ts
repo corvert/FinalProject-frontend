@@ -30,7 +30,8 @@ export class ViewCurrencyComponent implements OnInit {
           console.log(response);
           this.currencyRates = response;
         },
-        error: (error: HttpErrorResponse) => alert(error.message),
+        error: (error: HttpErrorResponse) => 
+        console.log(error),
         complete: () => console.log("completed")
       }
     );
@@ -39,7 +40,5 @@ export class ViewCurrencyComponent implements OnInit {
 public goUpdateCurrencyRate(currencyId: number) {
   this.router.navigate([`/currency/${currencyId}/update`]);
 }
-
-
 
 }

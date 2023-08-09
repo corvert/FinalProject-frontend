@@ -29,4 +29,6 @@ export class StockService {
     return this.http.get<Stock[]>(`${this.apiServerUrl}/account/${accountId}/stock-list`);
   }
 
+  
+
 }

@@ -241,6 +241,8 @@ html {
     -moz-animation-delay: 1.4s;
     animation-delay: 1.4s;
   }
+
+  
   
   /* Simple CSS3 Fade-in Animation */
   .underlineHover:after {
@@ -277,4 +279,11 @@ html {
   h3 {
     margin: 10px;
     font-weight: bold;
+  }
+
+  .alert-box {
+    padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 4px;  
   }

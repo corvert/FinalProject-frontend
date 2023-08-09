@@ -4,32 +4,26 @@
   
       </div>
       <div>
-        <h5>Add trade for stock {{ selectedStock.stockName }}</h5>
+        <h5>Add dividend for stock {{ selectedStock.stockName }}</h5>
         <form (submit)="onSubmit(addDividendForm)" #addDividendForm="ngForm">
           <div class="form-group">
             <div>
               <label for="date">Date:</label><br>
-              <input type="date" id="date" name="date" [(ngModel)]="newDividend.date" required> <br>
+              <input  class="form-control" style="width: 200px" type="date" id="date" name="date" [(ngModel)]="newDividend.date" required max="{{ getCurrentDate() }}"> <br>
             </div>
             <div>
               <label for="grossAmount">Gross Amount</label> <br>
-              <input type="number" id="grossAmount" name="grossAmount" [(ngModel)]="newDividend.grossAmount" required>
+              <input  class="form-control" style="width: 200px" type="number" id="grossAmount" name="grossAmount" [(ngModel)]="newDividend.grossAmount" required>
               <br>
             </div>
             <div>
               <label for="withholdingTax">Withholding Tax</label>
               <br>
-              <input type="number" id="withholdingTax" name="withholdingTax" [(ngModel)]="newDividend.withholdingTax" required>
+              <input  class="form-control" style="width: 200px" type="number" id="withholdingTax" name="withholdingTax" [(ngModel)]="newDividend.withholdingTax" required>
               <br>
             </div>
-            <div>
-                <label for="netAmount">Net Amount</label>
-                <br>
-                <input type="number" id="netAmount" name="netAmount" value="newDividend.grossAmount-newDividend.withholdingTax"  disabled>
-                <br>
-              </div>
-            <br>
-            <button [disabled]="addDividendForm.invalid" class="btn btn-success" type="submit">Add new dividend</button>
+            
+            <button [disabled]="addDividendForm.invalid" class="btn btn-success" style="width: 200px" type="submit">Add new dividend</button>
           </div>
         </form>
       </div>

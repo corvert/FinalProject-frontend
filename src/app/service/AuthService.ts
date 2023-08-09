@@ -2,33 +2,45 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  
-    public username: string;
-    public password: string;
+
+  private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public loggedIn$: Observable<boolean> = this.loggedInSubject.asObservable();
+
+  // public username: string;
+  // public password: string;
 
   constructor(private http: HttpClient) {
 
   }
 
-  login(username: string, password: string) {
-    return this.http.get(environment.hostUrl + `api/v1/login`,
-      { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-        this.username = username;
-        this.password = password;
-        this.registerSuccessfulLogin(username, password);
-      }));
+  login(username: string, password: string): Observable<any> {
+    return this.http.get(environment.hostUrl + `/authenticate`, {
+      headers: { authorization: this.createBasicAuthToken(username, password) }
+    }).pipe(
+      map((res) => {
+        this.registerSuccessfulLogin();
+        this.loggedInSubject.next(true);
+      })
+    );
   }
 
-  createBasicAuthToken(username: string, password: string) {
+  logout(): void {
+
+    this.loggedInSubject.next(false);
+  }
+
+  private registerSuccessfulLogin(): void {
+    
+
+  }
+
+  private createBasicAuthToken(username: string, password: string): string {
     return 'Basic ' + window.btoa(username + ":" + password);
-  }
-
-  registerSuccessfulLogin(username, password) {
-    // save the username to session
   }
 }

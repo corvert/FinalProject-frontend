@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./security.component.css']
 })
 export class SecurityComponent implements OnInit {
-  authRequest: any = {
-    username: '',
-    password: ''
-  };
+  authRequest: any = {};
+  username: string;
+  password: string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
 
   response: string | null = null;
 
@@ -26,10 +29,18 @@ export class SecurityComponent implements OnInit {
         console.log(data)
         sessionStorage.setItem('token',data)
         this.accessApi(data);
+        this.invalidLogin = false;
+        this.loginSuccess = true;
+        
+        this.successMessage = 'Login Successful';
         this.router.navigate(['/home']);
       },
       (error: any) => {
         console.error('Error logging in:', error);
+        this.invalidLogin = true;
+      this.loginSuccess = false;
+      
+      
       }
     );
   }
@@ -44,4 +55,6 @@ export class SecurityComponent implements OnInit {
       }
     );
   }
+
+
 }
