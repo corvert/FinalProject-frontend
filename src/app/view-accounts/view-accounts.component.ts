@@ -78,17 +78,33 @@ export class ViewAccountsComponent implements OnInit {
   }
 
   private calculateBalances(): void {
-    this.accounts.forEach((account) => {
-      this.currencyService.getCurrencyByCode(account.currency).subscribe(
-        (currencyRate: CurrencyRate) => {
-          const balanceInDesiredCurrency = account.balance / currencyRate.rate;
-          this.calculatedBalances[account.id] = balanceInDesiredCurrency;
-        },
-        (error) => {
-          console.error('Error fetching currency rate:', error);
-        }
-      );
+    const currencyConversionPromises = this.accounts.map((account) => {
+      return new Promise<number>((resolve, reject) => {
+        this.currencyService.getCurrencyByCode(account.currency).subscribe(
+          (currencyRate: CurrencyRate) => {
+            const balanceInDesiredCurrency = account.balance / currencyRate.rate;
+            this.calculatedBalances[account.id] = balanceInDesiredCurrency;
+            resolve(balanceInDesiredCurrency); 
+          },
+          (error) => {
+            console.error('Error fetching currency rate:', error);
+            reject(error); 
+          }
+        );
+      });
     });
+  
+   
+    Promise.all(currencyConversionPromises)
+      .then((balances) => {
+        const totalBalance = balances.reduce((sum, balance) => sum + Number(balance), 0);
+        this.calculatedBalances['total'] = totalBalance;
+      })
+      .catch((error) => {
+        console.error('Error calculating total balance:', error);
+      });
   }
+  
+  
 
 }

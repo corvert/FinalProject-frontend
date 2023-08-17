@@ -14,7 +14,6 @@ export class JwtClientService {
   }
 
   welcome(token: string) {
-   
     return this.httpClient.get<string>('http://localhost:8080/', { responseType: 'text' as 'json' });
   }
 }

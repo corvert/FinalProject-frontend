@@ -31,7 +31,6 @@ export class SecurityComponent implements OnInit {
         this.accessApi(data);
         this.invalidLogin = false;
         this.loginSuccess = true;
-        
         this.successMessage = 'Login Successful';
         this.router.navigate(['/home']);
       },
